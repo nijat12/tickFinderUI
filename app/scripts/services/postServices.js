@@ -11,7 +11,7 @@ tick.factory('postServices', ['$q', 'endPointDefinitionService', '$resource',
       var promise = resource.query().$promise;
 
       promise.then(function (data) {
-        console.log(data);
+        //console.log(data);
         //var result = [];
         //if (data && Object.prototype.toString.call(data) === '[object Array]')
         //  for (var i = 0; i < data.length; i++) {
@@ -37,7 +37,7 @@ tick.factory('postServices', ['$q', 'endPointDefinitionService', '$resource',
         var promise = resource.save().$promise;
 
         promise.then(function (data) {
-          console.log(data);
+          //console.log(data);
           deferred.resolve(data);
         }, function (err) {
           //$log.error('couldn"t reach server to get the Case');

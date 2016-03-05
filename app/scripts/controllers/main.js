@@ -8,14 +8,18 @@
  * Controller of the tickFinderUiApp
  */
 tick.controller('MainCtrl', ['$scope', 'loadIcon', '$q', 'postServices', 'contactServices', function ($scope, loadIcon, $q, postServices, contactServices) {
-  $scope.getPosts = function (){
+  $scope.posts = [];
 
+
+
+  $scope.getPosts = function (){
     //var d = $q.defer();
 
       loadIcon.show();
     postServices.getAll().then(function (data) {
         loadIcon.hide();
         //d.resolve(data);
+      $scope.posts = data;
       }, function (err) {
         loadIcon.hide();
         //d.reject(err);
@@ -27,7 +31,7 @@ tick.controller('MainCtrl', ['$scope', 'loadIcon', '$q', 'postServices', 'contac
   $scope.DeletePosts = function () {
     //get id from which one to delete $index
     loadIcon.show();
-    postServices.delete(498).then(function () {
+    postServices.delete(496).then(function () {
       loadIcon.hide();
     }, function (err) {
       loadIcon.hide();
@@ -49,41 +53,45 @@ tick.controller('MainCtrl', ['$scope', 'loadIcon', '$q', 'postServices', 'contac
 
   $scope.DeleteContacts = function (){
     loadIcon.show();
-    contactServices.delete(10).then(function () {
+    contactServices.deleteD(17).then(function () {
       loadIcon.hide();
     }, function (err) {
       loadIcon.hide();
     });
 
   };
+
 
 
 
   $scope.UpdateContacts1 = function (){
     loadIcon.show();
-    contactServices.post().then(function () {
+    contactServices.updateU({id:11, name:'Nijat11',email:'nijTestm',phone:'0005550'}).then(function () {
       loadIcon.hide();
     }, function (err) {
       loadIcon.hide();
     });
 
   };
-  $scope.UpdateContacts2 = function (){
+
+  $scope.create2 = function (){
     loadIcon.show();
-    contactServices.post().then(function () {
+    contactServices.createC().then(function () {
       loadIcon.hide();
     }, function (err) {
       loadIcon.hide();
     });
 
   };
+
   $scope.CreateContacts = function (){
     loadIcon.show();
-    contactServices.post().then(function () {
+    contactServices.createC({name:'Nijat11',email:'nijTestm',phone:'0005550'}).then(function () {
       loadIcon.hide();
     }, function (err) {
       loadIcon.hide();
     });
+  };
 
-  }
+  $scope.getPosts();
 }]);

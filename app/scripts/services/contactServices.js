@@ -11,13 +11,13 @@ tick.factory('contactServices', ['$q', 'endPointDefinitionService', '$resource',
     var promise = resource.query().$promise;
 
     promise.then(function (data) {
-      console.log(data);
+      //console.log(data);
       //var result = [];
       //if (data && Object.prototype.toString.call(data) === '[object Array]')
       //  for (var i = 0; i < data.length; i++) {
       //    result[i] = Model.Case.fromJson(data[i]);
       //  }
-      deferred.resolve();
+      deferred.resolve(data);
     }, function (err) {
       //$log.error('couldn"t reach server to get the Case');
       deferred.reject('couldn"t reach server to get the Contacts');
@@ -27,34 +27,23 @@ tick.factory('contactServices', ['$q', 'endPointDefinitionService', '$resource',
 
   }
 
-  function postContent (params){
+  function updateContent (params){
     var deferred = $q.defer();
-    var type = null;
     var endPoint = endPointDefinitionService.updateContactURL;
 
     if(params){
-      if(params.id && params.id!==null){
-        type='update';
-        var resource = $resource(endPoint, {id:params.id, name:params.name, email:params.email, phone:params.phone});
-      } else {
-        type='create2';
-        var resource = $resource(endPoint, {name:params.name, email:params.email, phone:params.phone});
-      }
-    } else {
-      type='create1';
-      var resource = $resource(endPoint);
-    }
-    var promise = resource.save().$promise;
+      var resource = $resource(endPoint, {id: params.id});
+      var promise = resource.save({id: params.id, name: params.name, email: params.email, phone: params.phone}).$promise;
 
-    promise.then(function (data) {
-      if(type==='update'){
-        deferred.resolve();
-      } else {
+      promise.then(function (data) {
+        //console.log(data);
         deferred.resolve(data);
-      }
-    }, function (err) {
-      deferred.reject('couldn"t reach server to add the Test');
-    });
+      }, function (err) {
+        deferred.reject('missing parameters to Update the Content');
+      });
+    } else {
+      deferred.reject('couldn"t reach server to Update the Content');
+    }
 
     return deferred.promise;
 
@@ -63,21 +52,19 @@ tick.factory('contactServices', ['$q', 'endPointDefinitionService', '$resource',
   function createContent (params){
     var deferred = $q.defer();
     var endPoint = endPointDefinitionService.createContactURL;
-
-    if(params) {
-      var resource = $resource(endPoint, {name: params.name, email: params.email, phone: params.phone});
-      var promise = resource.save().$promise;
+      var resource = $resource(endPoint);
+      var promise = resource.save(params).$promise;
 
       promise.then(function (data) {
-        console.log(data);
+        //console.log(data);
         deferred.resolve(data);
       }, function (err) {
-        deferred.reject('couldn"t reach server to add the Test');
+        deferred.reject('missing parameters to Create the Content');
       });
-      
-    } else {
-      deferred.reject('couldn"t reach server to add the Test');
-    }
+
+    //} else {
+    //  deferred.reject('couldn"t reach server to Create the Content');
+    //}
 
     return deferred.promise;
 
@@ -92,7 +79,7 @@ tick.factory('contactServices', ['$q', 'endPointDefinitionService', '$resource',
       var promise = resource.save().$promise;
 
       promise.then(function (data) {
-        console.log(data);
+        //console.log(data);
         deferred.resolve(data);
       }, function (err) {
         //$log.error('couldn"t reach server to get the Case');
@@ -109,7 +96,8 @@ tick.factory('contactServices', ['$q', 'endPointDefinitionService', '$resource',
 
   return {
     getAll:getAll,
-    delete:deleteContent,
-    post:postContent
+    deleteD:deleteContent,
+    updateU:updateContent,
+    createC:createContent
   }
 }]);

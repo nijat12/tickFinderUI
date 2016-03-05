@@ -16,8 +16,8 @@ tick.service('endPointDefinitionService' ,[function () {
   this.getContactURL = this.testURL + '/contact';
 
   //update endpoints
-  this.createContactURL = this.testURL + '/contact/:id/?name=:name,email=:email,phone=:phone';
-  this.updateContactURL = this.testURL + '/contact?id=:id,name=:name,email=:email,phone=:phone';
+  this.updateContactURL = this.testURL + '/contact/:id';
+  this.createContactURL = this.testURL + '/contact';
 
   //delete endpoints
   this.deletePostURL = this.testURL + '/post/delete/:id';
