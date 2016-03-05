@@ -17,9 +17,15 @@
   </div></div>
 
 
-  <div class="row">
-    <span ng-include="'views/panels.html'">
+  <div class="row" style="margin: 30px 20px;">
+    <button type="button" class="btn btn-primary-outline" ng-click="getPosts()">GetPost</button>
+    <button type="button" class="btn btn-secondary-outline" ng-click="DeletePosts()">DeletePost</button>
+    <button type="button" class="btn btn-success-outline" ng-click="GetContacts()">GetContact</button>
+    <button type="button" class="btn btn-info-outline" ng-click="DeleteContacts()">DeleteContact</button>
 
-      </span>
+
+    <button type="button" class="btn btn-warning-outline" ng-click="UpdateContacts1()">UpdateContactWithID</button>
+    <button type="button" class="btn btn-danger-outline" ng-click="UpdateContacts2()">!UpdateContactWithoutID</button>
+    <button type="button" class="btn btn-danger-outline" ng-click="CreateContacts()">CreateContact</button>
   </div>
 </div>

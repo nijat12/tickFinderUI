@@ -22,6 +22,25 @@ body {
   border: 0;
 }
 
+/*Loader*/
+.us-spinner-wrapper {
+  position: fixed;
+  top:0;
+  bottom:0;
+  right:0;
+  left:0;
+  overflow:hidden;
+  background: none;
+  transition: background 0.1s ease;
+  pointer-events: none;
+}
+
+.us-spinner-wrapper.loading {
+  z-index: 10;
+  pointer-events: auto;
+  background: rgba(255, 255, 255, 0.6);
+}
+
 .right {
   float: right;
   position: absolute;
