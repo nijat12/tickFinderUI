@@ -33,6 +33,10 @@ body {
   height: 200px;
 }
 
+.panel-body .main-row {
+  height:100%;
+}
+
 .panel-default {
   border-radius: 10px!important;
 }
