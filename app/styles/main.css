@@ -7,6 +7,57 @@
 
 body {
   padding: 0;
+  overflow: hidden;
+}
+
+.background {
+  height: 100%;
+  background-color: #eee;
+  position: absolute;
+  width: 100%;
+}
+
+.custom-header{
+  margin: 10px 10px;
+  border: 0;
+}
+
+.right {
+  float: right;
+  position: absolute;
+  right:15px;
+}
+
+.panel {
+  margin: 40px 50px;
+  height: 200px;
+}
+
+.panel-default {
+  border-radius: 10px!important;
+}
+
+.border-left {
+  border-radius: 10px!important;
+  border-left: 20px red solid;
+  height: 100%;
+}
+
+.panel-body .row {
+  height:100%;
+}
+
+.row .image {
+  width: 200px;
+  height: 100%;
+  display: inline-block;
+  overflow: hidden;
+  border: 1px solid #ddd;
+}
+
+.row .image img {
+  width: 100%;
+  height: 100%;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
