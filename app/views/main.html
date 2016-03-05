@@ -12,7 +12,7 @@
       <i class="fa fa-search fa-2x"></i>
     </div>
     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-1">
-      <i class="fa fa-cog fa-2x right"></i>
+      <i class="fa fa-cog fa-2x right" ng-click="open('lg')"></i>
     </div>
   </div></div>
 
@@ -26,10 +26,4 @@
     <button type="button" class="btn" ng-click="create2()">createWithoutID</button>
     <button type="button" class="btn" ng-click="CreateContacts()">CreateContact</button>
   </div>
-
-  <button type="button" class="btn btn-default" ng-click="open()">Open me!</button>
-  <button type="button" class="btn btn-default" ng-click="open('lg')">Large modal</button>
-  <button type="button" class="btn btn-default" ng-click="open('sm')">Small modal</button>
-  <button type="button" class="btn btn-default" ng-click="toggleAnimation()">Toggle Animation ({{ animationsEnabled }})</button>
-  <div ng-show="selected">Selection from a modal: {{ selected }}</div>
 </div>
