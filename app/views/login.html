@@ -1,0 +1,46 @@
+<div id="background">
+</div>
+<div id="logon">
+  <!--/start-login-one-->
+  <h1>Tick Finder</h1>
+  <div class="login effect8">
+    <div class="ribbon-wrapper h2 ribbon-red">
+      <div class="ribbon-front">
+        <h2>User Login</h2>
+      </div>
+      <div class="ribbon-edge-topleft2"></div>
+      <div class="ribbon-edge-bottomleft"></div>
+      <img class="brand-logo" src="./images/mdc-logo.png"/>
+      <h2 class="error-banner" ng-if="loginError">{{errorMessage}}</h2>
+      <div class="spin" ng-show="logingIn" us-spinner></div>
+    </div>
+    <form>
+      <ul>
+        <li ng-class="{ 'has-error-lr' : loginError}">
+          <input type="text" class="text" value="Email Address"
+                 onfocus="this.value = '';"
+                 onblur="if (this.value == '') {this.value = 'ID';}"
+                 ng-pattern="EMAIL"
+                 id="user"
+                 ng-model="user"
+                 ng-enter="doLogin()"
+                 placeholder="ID">
+          <i class="icon user"></i>
+        </li>
+        <li ng-class="{ 'has-error-lr' : loginError}">
+          <input type="password" value="Password" onfocus="password.value = '';"
+                 onblur="if (password.value == '') {password.value = 'Password';}"
+                 id="password"
+                 ng-model="password"
+                 ng-enter="doLogin()"
+                 placeholder="Password">
+          <i class=" icon lock"></i>
+        </li>
+      </ul>
+
+    </form>
+    <div class="submit">
+      <input type="submit" id="login-button" ng-click="doLogin()" focus-on="focusLogin" value="Log in">
+    </div>
+  </div>
+</div>

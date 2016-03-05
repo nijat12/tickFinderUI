@@ -1,0 +1,569 @@
+/*--
+}
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+--*/
+/* reset */
+#logon html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, dl, dt, dd, ol, nav ul, nav li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+#logon article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+#logon ol, ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+#logon blockquote, q {
+  quotes: none;
+}
+
+#logon blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none;
+}
+
+#logon table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* start editing from here */
+#logon a {
+  text-decoration: none;
+}
+
+#logon .txt-rt {
+  text-align: right;
+}
+
+/* text align right */
+#logon .txt-lt {
+  text-align: left;
+}
+
+/* text align left */
+#logon .txt-center {
+  text-align: center;
+}
+
+/* text align center */
+#logon .float-rt {
+  float: right;
+}
+
+/* float right */
+#logon .float-lt {
+  float: left;
+}
+
+/* float left */
+#logon .clear {
+  clear: both;
+}
+
+/* clear float */
+#logon .pos-relative {
+  position: relative;
+}
+
+/* Position Relative */
+#logon .pos-absolute {
+  position: absolute;
+}
+
+/* Position Absolute */
+#logon .vertical-base {
+  vertical-align: baseline;
+}
+
+/* vertical align baseline */
+#logon .vertical-top {
+  vertical-align: top;
+}
+
+/* vertical align top */
+#logon nav.vertical ul li {
+  display: block;
+}
+
+/* vertical menu */
+#logon nav.horizontal ul li {
+  display: inline-block;
+}
+
+/* horizontal menu */
+#logon img {
+  max-width: 100%;
+}
+
+/*end reset*/
+/****-----start-body----****/
+/*body {*/
+  /*background: #1d212a;*/
+  /*font-family: 'Open Sans', sans-serif;*/
+
+/*}*/
+#background {
+  position: absolute;
+  top: -100px;
+  left: -20px;
+  right: -40px;
+  bottom: 0px;
+  width: auto;
+  height: auto;
+  /*background-image: url(../images/background.jpg);*/
+  background-size: cover;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+  z-index: -3;
+}
+
+#logon {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  margin-top: -25%;
+  z-index: 1;
+  left: 0;
+}
+
+#logon a, form li, .submit input[type="submit"] {
+  transition: 0.1s all;
+  -webkit-transition: 0.1s all;
+  -moz-transition: 0.1s all;
+  -o-transition: 0.1s all;
+}
+
+#logon h1 {
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 3.5em;
+  color: #ffffff;
+  text-shadow: 2.5px 2.5px #000000;
+  padding: 1em 0;
+  z-index: 1;
+}
+
+/*---login-form1--------*/
+#logon .login {
+  margin: 2% auto 7%;
+  width: 30%;
+  background: #fff;
+  border-radius: 2.5em;
+  -webkit-border-radius: 2.5em;
+  -o-border-radius: 2.5em;
+  -moz-border-radius: 2.5em;
+}
+
+#logon form {
+  padding: 10% 4% 6% 4%;
+  z-index: 1;
+}
+
+#logon form li {
+  list-style: none;
+  width: 100%;
+  font-weight: 500;
+  border: 1px solid #ccc;
+  background: #fff;
+  margin: 1em 0;
+  outline: none;
+}
+
+#logon input[type="text"], input[type="password"] {
+  width: 87%;
+  padding: 1em 0em 1em 2.7em;
+  margin-left: 40px;
+  color: #858282;
+  font-size: 15px;
+  outline: none;
+  background: none;
+  font-weight: 500;
+  border: none;
+  z-index: 1;
+}
+
+#logon .icon {
+  height: 20px;
+  width: 40px;
+  display: block;
+  float: left;
+  margin: 12px -40px 0px 0px;
+  border-right: 1px solid #999;
+  padding: 5px 16px 0 0;
+}
+
+#logon .spin {
+  right: 70px !important;
+  position: absolute;
+}
+
+#logon .user {
+  background: url(../images/user.png) no-repeat 8px 2px;
+}
+
+#logon .lock {
+  background: url(../images/lock.png) no-repeat 8px 2px;
+}
+
+#logon .success {
+  margin-top: 50px;
+}
+
+.error-banner {
+  color: red !important;
+  position: absolute !important;
+  top: 70px !important;
+  left: 40px !important;
+}
+
+#logon .submit input[type="submit"] {
+  font-size: 20px;
+  font-weight: 400;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+  padding: 21px 20px;
+  width: 100%;
+  border: none;
+  transition: 0.1s all;
+  -webkit-transition: 0.1s all;
+  -moz-transition: 0.1s all;
+  -o-transition: 0.1s all;
+  background: #00bffe;
+  border-bottom-right-radius: 1.44em;
+  -webkit-border-bottom-right-radius: 1.4em;
+  -o-border-bottom-right-radius: 1.4em;
+  -moz-border-bottom-right-radius: 1.4em;
+  border-bottom-left-radius: 1.4em;
+  -webkit-border-bottom-left-radius: 1.4em;
+  -o-border-bottom-left-radius: 1.4em;
+  -moz-border-bottom-left-radius: 1.4em;
+}
+
+.effect8
+{
+  position:relative;
+  -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+.effect8:before, .effect8:after
+{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  -webkit-box-shadow:0 0 40px rgba(0,0,0,0.8);
+  -moz-box-shadow:0 0 40px rgba(0,0,0,0.8);
+  box-shadow:0 0 40px rgba(0,0,0,0.8);
+  top:10px;
+  bottom:10px;
+  left:0;
+  right:0;
+  border-radius: 2.5em;
+  -webkit-border-radius: 2.5em;
+  -o-border-radius: 2.5em;
+  -moz-border-radius: 2.5em;
+}
+.effect8:after
+{
+  right:10px;
+  left:auto;
+  -webkit-transform:skew(8deg) rotate(3deg);
+  -moz-transform:skew(8deg) rotate(3deg);
+  -ms-transform:skew(8deg) rotate(3deg);
+  -o-transform:skew(8deg) rotate(3deg);
+  transform:skew(8deg) rotate(3deg);
+}
+
+#logon input[type="submit"]:hover {
+  background: #ffa300;
+}
+
+/* ribbon style */
+#logon .h2 h2 {
+  color: #fff;
+  font-size: 0.55em;
+  padding: 12px 9px 5px 27px;
+  font-weight: 300;
+}
+
+#logon .h2.ribbon-wrapper {
+  position: relative;
+}
+
+#logon .h2 .ribbon-front {
+  background-color: #ffa300;
+  height: 43px;
+  width: 115px;
+  position: relative;
+  left: -10px;
+  z-index: 2;
+  top: 22px;
+}
+
+#logon .h2 .ribbon-edge-topleft,
+#logon .h2 .ribbon-edge-topright,
+#logon .h2 .ribbon-edge-bottomleft,
+#logon .h2 .ribbon-edge-bottomright {
+  position: absolute;
+  z-index: 1;
+  border-style: solid;
+  height: 0px;
+  width: 0px;
+}
+
+#logon .h2 .ribbon-edge-topleft,
+#logon .h2 .ribbon-edge-topright {
+}
+
+#logon .h2 .ribbon-edge-bottomleft,
+#logon .h2 .ribbon-edge-bottomright {
+  top: 65px;
+}
+
+#logon .h2 .ribbon-edge-topleft,
+#logon .h2 .ribbon-edge-bottomleft {
+  left: -10px;
+  border-color: transparent #e17e02 transparent transparent;
+}
+
+#logon .h2 .ribbon-edge-topleft {
+  top: -0px;
+  border-width: 0px 10px 0 0;
+}
+
+#logon .h2 .ribbon-edge-bottomleft {
+  border-width: 0 10px 15px 0;
+}
+
+#logon .h2 .ribbon-edge-topright,
+#logon .h2 .ribbon-edge-bottomright {
+  left: 180px;
+  border-color: transparent transparent transparent #e17e02;
+}
+
+#logon .h2 .ribbon-edge-topright {
+  top: -0px;
+  border-width: 0px 0 0 0px;
+}
+
+#logon .h2 .ribbon-edge-bottomright {
+  border-width: 0 0 0px 0px;
+}
+
+#logon .ribbon-edge-topleft2 {
+  position: absolute;
+  z-index: 1;
+  border-style: solid;
+  height: 0px;
+  width: 0px;
+}
+
+#logon .ribbon-edge-topleft2 {
+  left: 105px;
+  border-color: transparent #ffa300 transparent transparent;
+}
+
+#logon .ribbon-edge-topleft2 {
+  top: 22px;
+  border-width: 22px 20px 21px 37px;
+  transform: rotate(-180deg);
+  border-radius: 1px;
+}
+
+/****************/
+#logon .copy-right {
+  text-align: center;
+  background: url("../images/red.png") repeat;
+  padding: 1em 1em;
+}
+
+#logon .copy-right p {
+  color: #fff;
+  font-size: 1em;
+  font-weight: 400;
+  margin-top: 0.5em;
+}
+
+#logon .copy-right p a {
+  color: #fff;
+}
+
+#logon .copy-right p a:hover {
+  text-decoration: underline;
+}
+
+.brand-login {
+  font-size: 50px;
+  font-family: fantasy;
+  text-align: center;
+}
+
+.brand-logo {
+  height: 50px;
+  /*margin-top: -100px;*/
+  position: absolute;
+  left: 40%;
+  top: 18px;
+}
+
+/*-----start-responsive-design------*/
+@media (max-width: 1440px) {
+}
+
+@media (max-width: 1366px) {
+  #logon .login-01 {
+    margin: 0 auto;
+    width: 35%;
+
+  }
+
+  #logon form {
+    padding: 12% 4% 6% 4%;
+  }
+
+  #logon h1 {
+    font-size: 3.5em;
+  }
+}
+
+@media (max-width: 1280px) {
+  #logon .login {
+    margin: 2% auto 6%;
+    width: 35%;
+  }
+  #logon input[type="text"], input[type="password"] {
+    width: 82%;
+  }
+}
+
+@media (max-width: 1024px) {
+  #logon {
+    top: 40%;
+  }
+
+  #logon .login {
+    margin: 2% auto 6%;
+    width: 40%;
+  }
+
+  #logon h1 {
+    font-size: 3.3em;
+  }
+
+}
+
+@media (max-width: 890px) {
+  #logon input[type="text"], input[type="password"] {
+    width: 82%;
+  }
+
+  #logon .login {
+    margin: 2% auto 6%;
+    width: 50%;
+  }
+}
+
+@media (max-width: 790px) {
+  #logon {
+    top: 30%;
+  }
+
+  #logon .login {
+    margin: 3% auto 8%;
+    width: 55%;
+  }
+
+  #logon h1 {
+    font-size: 3.1em;
+  }
+  #logon input[type="text"], input[type="password"] {
+    width: 85%;
+  }
+}
+
+@media (max-width: 690px) {
+  #logon input[type="text"], input[type="password"] {
+    width: 82%;
+  }
+}
+
+@media (max-width: 640px) {
+  #logon {
+    top: 25%;
+  }
+
+  #logon .login {
+    margin: 3% auto 8%;
+    width: 66%;
+  }
+
+  #logon .copy-right p {
+    font-size: 0.9em;
+    line-height: 1.6em;
+  }
+
+  #logon h1 {
+    font-size: 3em;
+  }
+
+}
+
+@media (max-width: 480px) {
+  #logon .login {
+    margin: 4% auto 18%;
+    width: 87%;
+  }
+
+  #logon h1 {
+    font-size: 2.8em;
+  }
+
+}
+
+@media (max-width: 320px) {
+  #logon .login {
+    margin: 4% auto 8%;
+    width: 89%;
+  }
+
+  #logon .submit input[type="submit"] {
+    font-size: 18px;
+    padding: 18px 18px;
+  }
+
+  #logon .copy-right p {
+    font-size: 0.85em;
+    line-height: 1.6em;
+  }
+
+  #logon input[type="text"], input[type="password"] {
+    font-size: 13px;
+  }
+
+  #logon .icon {
+    margin: 8px -29px 0px 0px;
+    padding: 5px 14px 0 0;
+  }
+
+  #logon form li {
+    width: 99%;
+  }
+
+}

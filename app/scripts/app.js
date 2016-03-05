@@ -8,26 +8,32 @@
  *
  * Main module of the application.
  */
-angular
+var tick = angular
   .module('tickFinderUiApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.router',
+    'ui.bootstrap',
+    'ui.bootstrap.fontawesome',
+    'angularSpinner'
   ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
+  .config(function ($urlRouterProvider, $stateProvider) {
+    // For any unmatched url, redirect to /state1
+    $urlRouterProvider.otherwise('/login');
+
+    $stateProvider
+      .state('login', {
+        url:'/login',
+        templateUrl: 'views/login.html',
+        controller: 'loginCtrl'
+      })
+      .state('main', {
+        url:'/',
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
       });
   });
