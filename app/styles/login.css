@@ -111,8 +111,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 /*end reset*/
 /****-----start-body----****/
 /*body {*/
-  /*background: #1d212a;*/
-  /*font-family: 'Open Sans', sans-serif;*/
+/*background: #1d212a;*/
+/*font-family: 'Open Sans', sans-serif;*/
 
 /*}*/
 #background {
@@ -123,13 +123,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
   bottom: 0px;
   width: auto;
   height: auto;
-  /*background-image: url(../images/background.jpg);*/
+  background-image: url(../images/background-4.jpg);
   background-size: cover;
-  -webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -o-filter: blur(5px);
-  -ms-filter: blur(5px);
-  filter: blur(5px);
+  -webkit-filter: blur(1px);
+  -moz-filter: blur(1px);
+  -o-filter: blur(1px);
+  -ms-filter: blur(1px);
+  filter: blur(1px);
   z-index: -3;
 }
 
@@ -153,8 +153,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
   text-align: center;
   font-family: sans-serif;
   font-size: 3.5em;
-  color: #ffffff;
-  text-shadow: 2.5px 2.5px #000000;
+  color: #5d6060;
   padding: 1em 0;
   z-index: 1;
 }
@@ -164,14 +163,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
   margin: 2% auto 7%;
   width: 30%;
   background: #fff;
-  border-radius: 2.5em;
-  -webkit-border-radius: 2.5em;
-  -o-border-radius: 2.5em;
-  -moz-border-radius: 2.5em;
+  border-radius: 1em 1em 1.5em 1.5em;
+  -webkit-border-radius: 1em 1em 1.5em 1.5em;
+  -o-border-radius: 1em 1em 1.5em 1.5em;
+  -moz-border-radius: 1em 1em 1.5em 1.5em;
 }
 
 #logon form {
-  padding: 10% 4% 6% 4%;
+  padding: 2% 4% 6% 4%;
   z-index: 1;
 }
 
@@ -189,7 +188,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
   width: 87%;
   padding: 1em 0em 1em 2.7em;
   margin-left: 40px;
-  color: #858282;
+  color: #ccc;
   font-size: 15px;
   outline: none;
   background: none;
@@ -200,10 +199,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 #logon .icon {
   height: 20px;
-  width: 40px;
+  width: 30px;
   display: block;
   float: left;
-  margin: 12px -40px 0px 0px;
+  margin: 12px -40px 0px 10px;
   border-right: 1px solid #999;
   padding: 5px 16px 0 0;
 }
@@ -214,11 +213,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 }
 
 #logon .user {
-  background: url(../images/user.png) no-repeat 8px 2px;
+  background: url() no-repeat 8px 2px;
 }
 
 #logon .lock {
-  background: url(../images/lock.png) no-repeat 8px 2px;
+  background: url() no-repeat 8px 2px;
 }
 
 #logon .success {
@@ -240,46 +239,22 @@ License URL: http://creativecommons.org/licenses/by/3.0/
   outline: none;
   padding: 21px 20px;
   width: 100%;
-  border: none;
-  transition: 0.1s all;
-  -webkit-transition: 0.1s all;
-  -moz-transition: 0.1s all;
-  -o-transition: 0.1s all;
-  background: #00bffe;
-  border-bottom-right-radius: 1.44em;
-  -webkit-border-bottom-right-radius: 1.4em;
-  -o-border-bottom-right-radius: 1.4em;
-  -moz-border-bottom-right-radius: 1.4em;
-  border-bottom-left-radius: 1.4em;
-  -webkit-border-bottom-left-radius: 1.4em;
-  -o-border-bottom-left-radius: 1.4em;
-  -moz-border-bottom-left-radius: 1.4em;
+  border-radius: 0em 0em 1em 1em;
+  /*  transition: 0.1s all;
+    -webkit-transition: 0.1s all;
+    -moz-transition: 0.1s all;
+    -o-transition: 0.1s all;*/
+  background: #0b4e61;
 }
 
 .effect8
 {
   position:relative;
-  -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-  -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-  box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 0px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 0px rgba(0, 0, 0, 0.1) inset;
+  box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 0px rgba(0, 0, 0, 0.1) inset;
 }
-.effect8:before, .effect8:after
-{
-  content:"";
-  position:absolute;
-  z-index:-1;
-  -webkit-box-shadow:0 0 40px rgba(0,0,0,0.8);
-  -moz-box-shadow:0 0 40px rgba(0,0,0,0.8);
-  box-shadow:0 0 40px rgba(0,0,0,0.8);
-  top:10px;
-  bottom:10px;
-  left:0;
-  right:0;
-  border-radius: 2.5em;
-  -webkit-border-radius: 2.5em;
-  -o-border-radius: 2.5em;
-  -moz-border-radius: 2.5em;
-}
+
 .effect8:after
 {
   right:10px;
@@ -292,15 +267,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 }
 
 #logon input[type="submit"]:hover {
-  background: #ffa300;
+  background: #a9bc47;
 }
 
 /* ribbon style */
 #logon .h2 h2 {
   color: #fff;
   font-size: 0.55em;
-  padding: 12px 9px 5px 27px;
+  padding: 12px 9px 5px 12px;
   font-weight: 300;
+  text-align: center;
 }
 
 #logon .h2.ribbon-wrapper {
@@ -308,83 +284,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 }
 
 #logon .h2 .ribbon-front {
-  background-color: #ffa300;
+  background-color: #0b4e61;
   height: 43px;
-  width: 115px;
+  width: 100%;
   position: relative;
-  left: -10px;
   z-index: 2;
-  top: 22px;
-}
-
-#logon .h2 .ribbon-edge-topleft,
-#logon .h2 .ribbon-edge-topright,
-#logon .h2 .ribbon-edge-bottomleft,
-#logon .h2 .ribbon-edge-bottomright {
-  position: absolute;
-  z-index: 1;
-  border-style: solid;
-  height: 0px;
-  width: 0px;
-}
-
-#logon .h2 .ribbon-edge-topleft,
-#logon .h2 .ribbon-edge-topright {
-}
-
-#logon .h2 .ribbon-edge-bottomleft,
-#logon .h2 .ribbon-edge-bottomright {
-  top: 65px;
-}
-
-#logon .h2 .ribbon-edge-topleft,
-#logon .h2 .ribbon-edge-bottomleft {
-  left: -10px;
-  border-color: transparent #e17e02 transparent transparent;
-}
-
-#logon .h2 .ribbon-edge-topleft {
-  top: -0px;
-  border-width: 0px 10px 0 0;
-}
-
-#logon .h2 .ribbon-edge-bottomleft {
-  border-width: 0 10px 15px 0;
-}
-
-#logon .h2 .ribbon-edge-topright,
-#logon .h2 .ribbon-edge-bottomright {
-  left: 180px;
-  border-color: transparent transparent transparent #e17e02;
-}
-
-#logon .h2 .ribbon-edge-topright {
-  top: -0px;
-  border-width: 0px 0 0 0px;
-}
-
-#logon .h2 .ribbon-edge-bottomright {
-  border-width: 0 0 0px 0px;
-}
-
-#logon .ribbon-edge-topleft2 {
-  position: absolute;
-  z-index: 1;
-  border-style: solid;
-  height: 0px;
-  width: 0px;
-}
-
-#logon .ribbon-edge-topleft2 {
-  left: 105px;
-  border-color: transparent #ffa300 transparent transparent;
-}
-
-#logon .ribbon-edge-topleft2 {
-  top: 22px;
-  border-width: 22px 20px 21px 37px;
-  transform: rotate(-180deg);
-  border-radius: 1px;
 }
 
 /****************/
@@ -409,18 +313,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
   text-decoration: underline;
 }
 
-.brand-login {
-  font-size: 50px;
-  font-family: fantasy;
+.tick{
   text-align: center;
+  padding-top: 10%;
 }
 
-.brand-logo {
-  height: 50px;
-  /*margin-top: -100px;*/
-  position: absolute;
-  left: 40%;
-  top: 18px;
+.tick-logo{
+  height: 60px;
 }
 
 /*-----start-responsive-design------*/
@@ -435,7 +334,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
   }
 
   #logon form {
-    padding: 12% 4% 6% 4%;
+    padding: 5% 4% 6% 4%;
   }
 
   #logon h1 {
@@ -496,11 +395,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
   #logon input[type="text"], input[type="password"] {
     width: 85%;
   }
+
+  .tick{
+    text-align: center;
+    padding-top: 10%;
+  }
 }
 
 @media (max-width: 690px) {
   #logon input[type="text"], input[type="password"] {
     width: 82%;
+  }
+  .tick{
+    text-align: center;
+    padding-top: 5%;
   }
 }
 
@@ -512,6 +420,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
   #logon .login {
     margin: 3% auto 8%;
     width: 66%;
+    padding-top: 0%;
   }
 
   #logon .copy-right p {
@@ -521,6 +430,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
   #logon h1 {
     font-size: 3em;
+  }
+  .tick{
+    text-align: center;
+    padding-top: 5%;
   }
 
 }
@@ -533,6 +446,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
   #logon h1 {
     font-size: 2.8em;
+  }
+  .tick{
+    text-align: center;
+    padding-top: 5%;
   }
 
 }
@@ -558,12 +475,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
   }
 
   #logon .icon {
-    margin: 8px -29px 0px 0px;
-    padding: 5px 14px 0 0;
+    margin: 8px -12px 0px 0px;
+    padding: 5px 14px 0 10px;
   }
 
   #logon form li {
     width: 99%;
+  }
+  .tick{
+    text-align: center;
+    padding-top: 5%;
   }
 
 }

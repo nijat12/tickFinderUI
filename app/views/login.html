@@ -2,15 +2,14 @@
 </div>
 <div id="logon">
   <!--/start-login-one-->
-  <h1>Tick Finder</h1>
   <div class="login effect8">
     <div class="ribbon-wrapper h2 ribbon-red">
+      <div class="tick"><img src="../images/tf-logo.svg" class="tick-logo"/></div>
       <div class="ribbon-front">
         <h2>User Login</h2>
       </div>
       <div class="ribbon-edge-topleft2"></div>
       <div class="ribbon-edge-bottomleft"></div>
-      <img class="brand-logo" src="./images/mdc-logo.png"/>
       <h2 class="error-banner" ng-if="loginError">{{errorMessage}}</h2>
       <div class="spin" ng-show="logingIn" us-spinner></div>
     </div>
@@ -24,8 +23,8 @@
                  id="user"
                  ng-model="user"
                  ng-enter="doLogin()"
-                 placeholder="ID">
-          <i class="icon user"></i>
+                 placeholder="Username">
+          <i class="fa fa-user icon"></i>
         </li>
         <li ng-class="{ 'has-error-lr' : loginError}">
           <input type="password" value="Password" onfocus="password.value = '';"
@@ -34,7 +33,7 @@
                  ng-model="password"
                  ng-enter="doLogin()"
                  placeholder="Password">
-          <i class=" icon lock"></i>
+          <i class="fa fa-lock icon"></i>
         </li>
       </ul>
 
