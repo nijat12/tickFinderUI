@@ -1,23 +1,27 @@
 <div class="background">
-
   <div class="row">
-  <div class="custom-header">
-    <!--<div id="wrap">-->
+    <div class="custom-header">
+      <!--<div id="wrap">-->
       <!--<form action="" autocomplete="on">-->
-        <!--<input id="search" name="search" type="text" placeholder="Search"><input id="search_submit" value="Rechercher" type="submit">-->
+      <!--<input id="search" name="search" type="text" placeholder="Search"><input id="search_submit" value="Rechercher" type="submit">-->
       <!--</form>-->
-    <!--</div>-->
-
-    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-      <i class="fa fa-search fa-2x"></i>
+      <!--</div>-->
+      <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+        <i class="fa fa-search fa-2x"></i>
+      </div>
     </div>
     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-1">
       <i class="fa fa-cog fa-2x right" ng-click="open('lg')"></i>
     </div>
-  </div></div>
+  </div>
 
+  <div class="row">
+    <span ng-include="'views/panels.html'">
 
-  <div class="row" style="margin: 30px 20px;">
+    </span>
+  </div>
+
+  <div class="row">
     <button type="button" class="btn btn-primary-outline" ng-click="getPosts()">GetPost</button>
     <button type="button" class="btn btn-secondary-outline" ng-click="DeletePosts()">DeletePost</button>
     <button type="button" class="btn btn-success-outline" ng-click="GetContacts()">GetContact</button>
@@ -25,5 +29,22 @@
     <button type="button" class="btn" ng-click="UpdateContacts1()">UpdateContactWithID</button>
     <button type="button" class="btn" ng-click="create2()">createWithoutID</button>
     <button type="button" class="btn" ng-click="CreateContacts()">CreateContact</button>
+  </div>
+
+  <div class="row">
+    <div class="tickCountBtns">
+      <button class="tickBadBtn">
+        <span class="tickBtnName">Bad</span>
+        <span class="tickBtnNum">20</span>
+      </button>
+      <button class="tickUrgentBtn">
+        <span class="tickBtnName">Urgent</span>
+        <span class="tickBtnNum">50</span>
+      </button>
+      <button class="tickArchivedBtn">
+        <span class="tickBtnName">Archived</span>
+        <span class="tickBtnNum">100</span>
+      </button>
+    </div>
   </div>
 </div>
