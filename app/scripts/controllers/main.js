@@ -7,10 +7,39 @@
  * # MainCtrl
  * Controller of the tickFinderUiApp
  */
-tick.controller('MainCtrl', ['$scope', 'loadIcon', '$q', 'postServices', 'contactServices', function ($scope, loadIcon, $q, postServices, contactServices) {
+tick.controller('MainCtrl', ['$scope', 'loadIcon', '$q', 'postServices', 'contactServices', '$uibModal', '$log',
+  function ($scope, loadIcon, $q, postServices, contactServices, $uibModal, $log) {
   $scope.posts = [];
 
 
+  $scope.items = ['item1', 'item2', 'item3'];
+
+  $scope.animationsEnabled = true;
+
+  $scope.open = function (size) {
+
+    var modalInstance = $uibModal.open({
+      animation: $scope.animationsEnabled,
+      templateUrl: '../../views/modal/admin.html',
+      controller: 'AdminCtrl',
+      size: size,
+      resolve: {
+        items: function () {
+          return $scope.items;
+        }
+      }
+    });
+
+    modalInstance.result.then(function (selectedItem) {
+      $scope.selected = selectedItem;
+    }, function () {
+      $log.info('Modal dismissed at: ' + new Date());
+    });
+  };
+
+  $scope.toggleAnimation = function () {
+    $scope.animationsEnabled = !$scope.animationsEnabled;
+  };
 
   $scope.getPosts = function (){
     //var d = $q.defer();
