@@ -3,6 +3,9 @@
  * directive that adds loading class when spinner gets activated
  * loading class will block off the background to prevent user interaction
  */
+
+'use strict';
+
 tick.directive('loader', function () {
     return {
       restrict: 'E',
