@@ -6,7 +6,7 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
 /* reset */
-#logon html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, dl, dt, dd, ol, nav ul, nav li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+#logon html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, dl, dt, dd, ol, nav ul, nav li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -15,7 +15,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
   vertical-align: baseline;
 }
 
-#logon article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+#logon article, aside, details, figcaption, figure, footer, header, menu, nav, section {
   display: block;
 }
 
@@ -208,24 +208,25 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 }
 
 #logon .spin {
-  right: 70px !important;
+  right: 200px !important;
+  top: 190px!important;
   position: absolute;
 }
 
-#logon .user {
-  background: url() no-repeat 8px 2px;
-}
+/*#logon .user {*/
+  /*background: url() no-repeat 8px 2px;*/
+/*}*/
 
-#logon .lock {
-  background: url() no-repeat 8px 2px;
-}
+/*#logon .lock {*/
+  /*background: url() no-repeat 8px 2px;*/
+/*}*/
 
 #logon .success {
   margin-top: 50px;
 }
 
 .error-banner {
-  color: red !important;
+  color: red!important;
   position: absolute !important;
   top: 70px !important;
   left: 40px !important;
@@ -294,7 +295,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 /****************/
 #logon .copy-right {
   text-align: center;
-  background: url("../images/red.png") repeat;
+  /*background: url("../images/red.png") repeat;*/
   padding: 1em 1em;
 }
 

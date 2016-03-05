@@ -41,6 +41,9 @@ tick.controller('MainCtrl', ['$scope', 'loadIcon', '$q', 'postServices', 'contac
     $scope.animationsEnabled = !$scope.animationsEnabled;
   };
 
+
+
+
   $scope.getPosts = function (){
     //var d = $q.defer();
 
@@ -60,7 +63,8 @@ tick.controller('MainCtrl', ['$scope', 'loadIcon', '$q', 'postServices', 'contac
   $scope.DeletePosts = function () {
     //get id from which one to delete $index
     loadIcon.show();
-    postServices.delete(496).then(function () {
+    //for(var i = 50; i < 494; i++){
+    postServices.delete().then(function () {
       loadIcon.hide();
     }, function (err) {
       loadIcon.hide();

@@ -209,8 +209,17 @@ body {
   padding: 10px;
   background: white;
   box-shadow: 0 5px #ddd;
-  border-left: 20px red solid;
   border-radius: 10px;
+}
+
+.tickPane.red {
+  border-left: 20px red solid;
+}
+.tickPane.yellow {
+  border-left: 20px yellow solid;
+}
+.tickPane.green {
+  border-left: 20px green solid;
 }
 
 .tickPane .flex-container {

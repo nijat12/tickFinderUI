@@ -20,12 +20,12 @@ tick.controller('loginCtrl', ['$scope', '$rootScope', '$state', '$timeout', 'foc
     $scope.doLogin = function () {
       $scope.loginError = false;
       $scope.errorMessage = 'Error While logging in Please try again';
-      $scope.logingIn = true;
       $('form').fadeOut(500);
       //$(".submit").delay(500).queue(function(){
       //  $(this).addClass("success").dequeue();
       //});
       $timeout(function () {
+        $scope.logingIn = true;
         $(".submit").addClass("success").dequeue();
         authenticate();
       }, 500);
