@@ -330,7 +330,14 @@ img {
   right: 15px;
 }
 
-.tickPane .tickId {}
+.email .col-md-12 .btn {
+  float:right;
+}
+
+.wide {
+  width: 80%;
+  margin-left: 20px;
+}
 
 .tickPane .tickContent {
   line-height: 30px;

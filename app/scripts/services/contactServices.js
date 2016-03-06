@@ -33,7 +33,7 @@ tick.factory('contactServices', ['$q', 'endPointDefinitionService', '$resource',
 
     if(params){
       var resource = $resource(endPoint, {id: params.id});
-      var promise = resource.save({id: params.id, name: params.name, email: params.email, phone: params.phone}).$promise;
+      var promise = resource.save(params).$promise;
 
       promise.then(function (data) {
         //console.log(data);

@@ -1,11 +1,9 @@
-<link rel="stylesheet" href="views/modal/admin.css">
-
 <div class="modal-header">
   <div class="col-lg-10">
-    <h3 class="modal-title">Admin</h3>
+    <h3 class="modal-title">Email To</h3>
   </div>
   <div class="col-lg-1">
-    <i class="fa fa-2x fa-times" ng-click="ok()"></i>
+    <i class="fa fa-2x fa-times" ng-click="close()"></i>
   </div>
 </div>
 
@@ -13,42 +11,15 @@
 
   <div class="row">
     <div class="form-group">
-      <label class="col-md-2 control-label" for="criteria">Search Criteria</label>
-      <div class="col-md-8">
-        <textarea class="form-control" id="criteria" name="criteria"></textarea>
+      <div class="col-md-12">
+        <input class="wide" type="text" placeholder="Email" ng-model="email">
       </div>
     </div>
-  </div>
-  <div class="row second-row">
-    <div class="col-lg-8">
-      <div class="row">
-        User Info
-      </div></div>
-    <div class="col-lg-2">
-      <div class="row">
-        Alert Settings
-      </div>
-      <div class="row">
-        <div class="col-lg-6">
-          <label>Critical</label>
-        </div>
-        <div class="col-lg-6">
-          <label>Bad</label>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-2"></div>
-  </div>
-  <div ng-repeat="contact in contacts">
-    <span ng-include="'views/modal/inputs.html'">
-    </span>
   </div>
 
-  <div class="row third-row">
-    <div class="col-lg-4">
-      <button type="button" class="btn btn-clear" ng-click="CreateContacts()">
-        <i class="fa fa-2x fa-plus"></i>
-      </button>
+  <div class="row email">
+    <div class="col-md-12">
+      <button type="button" class="btn btn-primary" ng-click="send()">Send</button>
     </div>
   </div>
 </div>

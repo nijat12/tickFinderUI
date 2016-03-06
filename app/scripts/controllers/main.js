@@ -7,19 +7,27 @@
  * # MainCtrl
  * Controller of the tickFinderUiApp
  */
-tick.controller('MainCtrl', ['$scope', 'loadIcon', '$q', 'postServices', 'contactServices', '$uibModal', 'toastr',
-  function ($scope, loadIcon, $q, postServices, contactServices, $uibModal, toastr) {
+tick.controller('MainCtrl', ['$scope', 'loadIcon', '$q', 'postServices', 'contactServices', '$uibModal', 'toastr', '$window',
+  function ($scope, loadIcon, $q, postServices, contactServices, $uibModal, toastr, $window) {
     $scope.posts = [];
     $scope.contacts = [];
     $scope.searchVal = '';
+    $scope.emailTo = null;
+    var emailContent = '';
     var modalInstance = null, modalInstance2 = null;
 
     $scope.ok = function () {
       modalInstance.close();
     };
+    $scope.ok2 = function () {
+      modalInstance2.close();
+    };
 
-    $scope.cancel = function () {
-      modalInstance.close();
+    $scope.sendEmail = function () {
+      modalInstance2.close();
+      //console.log($scope.emailTo);
+      $window.location = 'mailto:'+ $scope.emailTo +'?subject=Check This Out&body='+emailContent;
+      emailContent='';
     };
 
     $scope.animationsEnabled = true;
@@ -34,13 +42,21 @@ tick.controller('MainCtrl', ['$scope', 'loadIcon', '$q', 'postServices', 'contac
       });
     };
 
-    $scope.emailOpen = function (size, index) {
+    $scope.emailOpen = function (size, obj) {
+      if(emailContent!=='') emailContent='';
+      emailContent = obj.source;
 
       modalInstance2 = $uibModal.open({
         animation: $scope.animationsEnabled,
         templateUrl: '../../views/modal/email.html',
-        size: size,
-        scope:$scope
+        controller: 'ModalCtrl',
+        size: size
+      });
+
+      modalInstance2.result.then(function (selectedItem) {
+        $scope.emailTo = selectedItem;
+        $scope.sendEmail();
+      }, function () {
       });
     };
 
@@ -157,4 +173,18 @@ tick.controller('MainCtrl', ['$scope', 'loadIcon', '$q', 'postServices', 'contac
     $scope.GetContacts();
 
     //$scope.open('lg');
-  }]);
+  }])
+
+.controller('ModalCtrl', function($scope, $uibModalInstance){
+  $scope.email = '';
+  //
+  $scope.send = function () {
+    $uibModalInstance.close($scope.email);
+  };
+
+  $scope.close = function () {
+    $uibModalInstance.dismiss();
+  };
+
+
+});
