@@ -7,12 +7,16 @@
  * # MainCtrl
  * Controller of the tickFinderUiApp
  */
-tick.controller('MainCtrl', ['$scope', 'loadIcon', '$q', 'postServices', 'contactServices', '$uibModal', 'toastr', '$window',
-  function ($scope, loadIcon, $q, postServices, contactServices, $uibModal, toastr, $window) {
+tick.controller('MainCtrl', ['$scope', 'loadIcon', '$q', 'postServices', 'contactServices', '$uibModal', 'toastr', '$window', 'focus',
+  function ($scope, loadIcon, $q, postServices, contactServices, $uibModal, toastr, $window, focus) {
     $scope.posts = [];
+    $scope.postsOnView = [];
     $scope.contacts = [];
+    $scope.tags=[];
     $scope.searchVal = '';
     $scope.emailTo = null;
+    $scope.levelFilter= null;
+
     var emailContent = '';
     var modalInstance = null, modalInstance2 = null;
 
@@ -23,11 +27,11 @@ tick.controller('MainCtrl', ['$scope', 'loadIcon', '$q', 'postServices', 'contac
       modalInstance2.close();
     };
 
-    $scope.sendEmail = function () {
+    $scope.sendEmail = function (obj) {
       modalInstance2.close();
-      //console.log($scope.emailTo);
       $window.location = 'mailto:'+ $scope.emailTo +'?subject=Check This Out&body='+emailContent;
       emailContent='';
+      obj.emailsent=true;
     };
 
     $scope.animationsEnabled = true;
@@ -55,7 +59,7 @@ tick.controller('MainCtrl', ['$scope', 'loadIcon', '$q', 'postServices', 'contac
 
       modalInstance2.result.then(function (selectedItem) {
         $scope.emailTo = selectedItem;
-        $scope.sendEmail();
+        $scope.sendEmail(obj);
       }, function () {
       });
     };
@@ -73,6 +77,7 @@ tick.controller('MainCtrl', ['$scope', 'loadIcon', '$q', 'postServices', 'contac
         loadIcon.hide();
         //d.resolve(data);
         $scope.posts = data;
+        $scope.postsOnView=angular.copy(data);
       }, function (err) {
         loadIcon.hide();
         //d.reject(err);
@@ -135,6 +140,43 @@ tick.controller('MainCtrl', ['$scope', 'loadIcon', '$q', 'postServices', 'contac
 
     };
 
+
+    ////Tags
+
+
+    $scope.getTags = function () {
+      loadIcon.show();
+      contactServices.getTags().then(function (data) {
+        loadIcon.hide();
+        $scope.tags=data;
+        console.log(data);
+        //d.resolve(data);
+      }, function (err) {
+        loadIcon.hide();
+      });
+
+    };
+
+    $scope.updateTags = function () {
+      //loadIcon.show();
+      contactServices.postTags($scope.tags).then(function (data) {
+        toastr.success('Saved', {
+          closeButton: true
+        });
+        //loadIcon.hide();
+        //d.resolve(data);
+      }, function (err) {
+        //loadIcon.hide();
+      });
+
+    };
+
+
+
+
+
+
+
     var monthNames = ["January", "February", "March", "April", "May", "June",
       "July", "August", "September", "October", "November", "December"
     ];
@@ -169,22 +211,110 @@ tick.controller('MainCtrl', ['$scope', 'loadIcon', '$q', 'postServices', 'contac
       });
     };
 
+
+
+    ////Filter////
+    $scope.red = function(){
+      if ($scope.levelFilter=== -1){
+        $scope.levelFilter= null;
+        $scope.filter();
+      }
+      else {
+        $scope.levelFilter= -1;
+        $scope.filter();
+      }
+    };
+    $scope.yellow = function(){
+      if ($scope.levelFilter=== 0){
+        $scope.levelFilter= null;
+        $scope.filter();
+      }
+      else {
+        $scope.levelFilter= 0;
+        $scope.filter();
+      }
+    };
+    $scope.green = function(){
+      if ($scope.levelFilter=== 1){
+        $scope.filter();
+        $scope.levelFilter= null;
+      }
+      else {
+        $scope.levelFilter= 1;
+        $scope.filter();
+      }
+    };
+
+    $scope.redCount = function (){
+      var c = 0;
+      for (var i = 0; i<$scope.posts.length; i++){
+        if($scope.posts[i].polarity === -1)c++;
+      }
+      return c;
+    };
+
+    $scope.yellowCount = function (){
+      var c = 0;
+      for (var i = 0; i<$scope.posts.length; i++){
+        if($scope.posts[i].polarity === 0)c++;
+      }
+      return c;
+    };
+
+    $scope.greenCount = function (){
+      var c = 0;
+      for (var i = 0; i<$scope.posts.length; i++){
+        if($scope.posts[i].polarity === 1)c++;
+      }
+      return c;
+    };
+
+    $scope.filterComparator = function (post){
+      if($scope.levelFilter !== null) return post;
+      else return null;
+    };
+
+
+    $scope.filter = function(){
+      $scope.postsOnView = $scope.posts.filter(checker);
+    };
+
+    var checker = function (obj) {
+      if($scope.levelFilter!==null){
+        if($scope.levelFilter===obj.polarity){
+          if($scope.searchVal!==''){
+            return obj.id.toString() == $scope.searchVal || obj.user.indexOf($scope.searchVal) > -1 || obj.content.indexOf($scope.searchVal) > -1
+          } else return true;
+        } else {
+          return false
+        }
+      } else {
+        return obj.id.toString()==$scope.searchVal || obj.user.indexOf($scope.searchVal)>-1 || obj.content.indexOf($scope.searchVal)>-1
+      }
+    };
+
+
+
+    $scope.openSearch = function(){
+      focus('search');
+      $scope.search=!$scope.search
+    };
+
+
+    //Init
     $scope.getPosts();
     $scope.GetContacts();
-
-    //$scope.open('lg');
+    $scope.getTags();
   }])
+
 
 .controller('ModalCtrl', function($scope, $uibModalInstance){
   $scope.email = '';
-  //
   $scope.send = function () {
     $uibModalInstance.close($scope.email);
   };
-
   $scope.close = function () {
     $uibModalInstance.dismiss();
   };
-
-
 });
+

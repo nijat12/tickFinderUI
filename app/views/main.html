@@ -7,18 +7,23 @@
       <!--</form>-->
       <!--</div>-->
       <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-        <i class="fa fa-search fa-2x" style="float: left;" ng-click="search=!search"></i>
-        <input type="text" class="form-control search-form" placeholder="Search" ng-show="search"
-               ng-model="searchVal" ng-blur="searchFunc()">
+        <button class="btn btn-c" style="float: left;">
+          <i class="fa fa-search fa-2x" ng-click="openSearch()"></i>
+        </button>
+        <input focus-on="search" type="text" class="form-control search-form" placeholder="Search" ng-show="search"
+               ng-model="searchVal" ng-change="filter()" ng-blur="searchFunc()">
       </div>
     </div>
     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-1">
-      <i class="fa fa-cog fa-2x right" ng-click="open('lg')"></i>
+
+      <button class="btn btn-c right">
+        <i class="fa fa-cog fa-2x" ng-click="open('lg')"></i>
+      </button>
     </div>
   </div>
 
   <div class="row second">
-    <div ng-repeat="post in posts | filter:searchVal:post">
+    <div ng-repeat="post in postsOnView">
     <span ng-include="'views/panels.html'">
     </span>
     </div>
@@ -27,17 +32,17 @@
 
   <div class="row bottom">
     <div class="tickCountBtns">
-      <button class="tickBadBtn">
-        <span class="tickBtnName">Bad</span>
-        <span class="tickBtnNum">20</span>
-      </button>
-      <button class="tickUrgentBtn">
+      <button class="tickUrgentBtn" ng-click="red()">
         <span class="tickBtnName">Urgent</span>
-        <span class="tickBtnNum">50</span>
+        <span class="tickBtnNum">{{redCount()}}</span>
       </button>
-      <button class="tickArchivedBtn">
-        <span class="tickBtnName">Archived</span>
-        <span class="tickBtnNum">100</span>
+      <button class="tickBadBtn" ng-click="yellow()">
+        <span class="tickBtnName">Bad</span>
+        <span class="tickBtnNum">{{yellowCount()}}</span>
+      </button>
+      <button class="tickArchivedBtn" ng-click="green()">
+        <span class="tickBtnName">Good</span>
+        <span class="tickBtnNum">{{greenCount()}}</span>
       </button>
     </div>
   </div>

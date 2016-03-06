@@ -4,16 +4,17 @@
 }
 
 .modal-body .col-lg-2{
-  text-align: center;
+  /*text-align: center;*/
 }
 
 .modal-header .xButton {
-  float: right;
+  text-align: right;
 }
 
 .form-group label{
   text-align: right;
-  margin-top: 50px;
+  margin-top: -5px;
+  font-size:1.9em;
 }
 
 .col-md-8 textarea{
@@ -25,7 +26,7 @@
   border-top: none;
 }
 .content .col-lg-2{
-  text-align: center;
+  /*text-align: center;*/
 }
 
 .row .col-lg-8 .row{
@@ -36,7 +37,8 @@
 .second-row {
   /*border-top: 1px solid #ddd;*/
   padding-bottom: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .content{
@@ -45,21 +47,42 @@
 }
 
 .btn-clear{
-  margin:20px 120px;
-  background: transparent;
+  margin:20px 0;
+  background: #00aeef;
+  color: white;
   border: 1px solid #ddd;
+  /*border-radius: 20px;*/
+  box-shadow: 0 6px 20px -7px #777;
 }
 
-.content .col-lg-2 .fa {
-  margin-top:5px;
-}
-.content .col-lg-2 .col-lg-6 .row {
+.third-row .col-lg-12 {
   text-align: center;
+}
+
+.content .col-lg-1 .btn  .fa {
+  /* margin-top: 26px; */
+  right: 50px;
+  top: 27px;
+  position: absolute;
 }
 
 .content .col-lg-2 .col-lg-6 {
   height: 100%;
-  margin-top: 10px;
+  text-align: center;
+}
+
+.col-lg-6 input {
+  margin: 11px!important;
+}
+
+input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(1.4); /* IE */
+  -moz-transform: scale(1.4); /* FF */
+  -webkit-transform: scale(1.4); /* Safari and Chrome */
+  -o-transform: scale(1.4); /* Opera */
+  padding:10px;
 }
 
 @-webkit-keyframes anim-1 {

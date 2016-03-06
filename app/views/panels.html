@@ -18,10 +18,17 @@
     </div>
     <div class="tickPaneEnd col-lg-1">
       <div class="row">
-      <i class="tickArchiveBtn fa fa-times fa-3x" ng-click="DeletePosts(post)"></i>
+
+        <button class="btn btn-c">
+          <i class="tickArchiveBtn fa fa-times fa-3x" ng-click="DeletePosts(post)"></i>
+        </button>
       </div>
       <div class="row sec">
-        <span><i class="tickMailBtn fa fa-envelope fa-3x" ng-click="emailOpen('md',post)"></i></span>
+        <span>
+
+      <button class="btn btn-c">
+        <i class="tickMailBtn fa fa-envelope fa-3x" ng-click="emailOpen('md',post)" ng-class="{'greenBG' : post.emailsent}"></i></span>
+        </button>
       </div>
     </div>
   </div>

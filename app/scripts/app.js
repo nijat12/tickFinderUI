@@ -31,9 +31,9 @@ var tick = angular
       maxOpened: 0,
       newestOnTop: true,
       positionClass: 'toast-top-right',
-      preventDuplicates: true,
+      preventDuplicates: false,
       preventOpenDuplicates: true,
-      extendedTimeOut: 500,
+      extendedTimeOut: 0,
       tapToDismiss: true,
       target: 'body'
     });
