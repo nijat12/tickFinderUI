@@ -86,15 +86,18 @@ tick.controller('MainCtrl', ['$scope', 'loadIcon', '$q', 'postServices', 'contac
       //return d.promise;
     };
 
-    $scope.DeletePosts = function (obj) {
-      loadIcon.show();
+    $scope.DeletePosts = function (obj, index) {
+
+      $scope.postsOnView.splice(index,1);
+
+      //loadIcon.show();
       //for(var i = 50; i < 494; i++){
-      postServices.delete(obj.id).then(function () {
-        $scope.getPosts();
-        loadIcon.hide();
-      }, function (err) {
-        loadIcon.hide();
-      });
+      //postServices.delete(obj.id).then(function () {
+      //  //$scope.getPosts();
+      //  loadIcon.hide();
+      //}, function (err) {
+      //  loadIcon.hide();
+      //});
     };
 
 
@@ -281,6 +284,12 @@ tick.controller('MainCtrl', ['$scope', 'loadIcon', '$q', 'postServices', 'contac
       return $scope.postsOnView.length;
     };
 
+    $scope.searchClear= function () {
+      $scope.searchVal='';
+      $scope.search = true;
+      $scope.filter();
+      focus('search');
+    };
 
 
 
@@ -298,13 +307,13 @@ tick.controller('MainCtrl', ['$scope', 'loadIcon', '$q', 'postServices', 'contac
       if($scope.levelFilter!==null){
         if($scope.levelFilter===obj.polarity){
           if($scope.searchVal!==''){
-            return obj.id.toString() == $scope.searchVal || obj.user.indexOf($scope.searchVal) > -1 || obj.content.indexOf($scope.searchVal) > -1
+            return obj.id.toString().toUpperCase() == $scope.searchVal.toUpperCase() || obj.user.toUpperCase().indexOf($scope.searchVal.toUpperCase()) > -1 || obj.content.toUpperCase().indexOf($scope.searchVal.toUpperCase()) > -1
           } else return true;
         } else {
           return false
         }
       } else {
-        return obj.id.toString()==$scope.searchVal || obj.user.indexOf($scope.searchVal)>-1 || obj.content.indexOf($scope.searchVal)>-1
+        return obj.id.toString().toUpperCase()==$scope.searchVal.toUpperCase() || obj.user.toUpperCase().indexOf($scope.searchVal.toUpperCase())>-1 || obj.content.toUpperCase().indexOf($scope.searchVal.toUpperCase())>-1
       }
     };
 
