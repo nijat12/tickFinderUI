@@ -523,37 +523,47 @@ tags-input .tags .tag-item{
 /* ANIMATIONS (FROM ANIMATE.CSS) ======================== */
 /* flip in */
 @keyframes flipInX {
+  /*0% {*/
+    /*transform: perspective(400px) rotate3d(1, 0, 0, 90deg);*/
+    /*transition-timing-function: ease-in;*/
+    /*opacity: 0;*/
+  /*}*/
+
+  /*40% {*/
+    /*transform: perspective(400px) rotate3d(1, 0, 0, -20deg);*/
+    /*transform: perspective(400px) rotate3d(1, 0, 0, -20deg);*/
+    /*transform: perspective(400px) rotate3d(1, 0, 0, -20deg);*/
+    /*transition-timing-function: ease-in;*/
+    /*transition-timing-function: ease-in;*/
+  /*}*/
+
+  /*60% {*/
+    /*transform: perspective(400px) rotate3d(1, 0, 0, 10deg);*/
+    /*transform: perspective(400px) rotate3d(1, 0, 0, 10deg);*/
+    /*transform: perspective(400px) rotate3d(1, 0, 0, 10deg);*/
+    /*opacity: 1;*/
+  /*}*/
+
+  /*80% {*/
+    /*transform: perspective(400px) rotate3d(1, 0, 0, -5deg);*/
+    /*transform: perspective(400px) rotate3d(1, 0, 0, -5deg);*/
+    /*transform: perspective(400px) rotate3d(1, 0, 0, -5deg);*/
+  /*}*/
+
+  /*100% {*/
+    /*transform: perspective(400px);*/
+    /*transform: perspective(400px);*/
+    /*transform: perspective(400px);*/
+  /*}*/
   0% {
-    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
-    transition-timing-function: ease-in;
     opacity: 0;
-  }
-
-  40% {
-    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
-    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
-    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
-    transition-timing-function: ease-in;
-    transition-timing-function: ease-in;
-  }
-
-  60% {
-    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
-    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
-    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
-    opacity: 1;
-  }
-
-  80% {
-    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
-    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
-    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+    transform: translateX(-300px);
   }
 
   100% {
-    transform: perspective(400px);
-    transform: perspective(400px);
-    transform: perspective(400px);
+    transform: translateX(0px);
+    /*transform: translate3d(100%, 0, 0) skewX(30deg);*/
+    opacity: 1;
   }
 }
 
@@ -564,100 +574,64 @@ tags-input .tags .tag-item{
   }
 
   100% {
-    transform: translate3d(100%, 0, 0) skewX(30deg);
-    transform: translate3d(100%, 0, 0) skewX(30deg);
+    transform: translateX(-300px);
+    /*transform: translate3d(100%, 0, 0) skewX(30deg);*/
     opacity: 0;
   }
 }
 
-@keyframes lightSpeedOut {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    transform: translate3d(100%, 0, 0) skewX(30deg);
-    transform: translate3d(100%, 0, 0) skewX(30deg);
-    transform: translate3d(100%, 0, 0) skewX(30deg);
-    opacity: 0;
-  }
-}
-
-
-
-
-
-
-/*.animate-enter {*/
-  /*-webkit-animation: enter 600ms cubic-bezier(0.445, 0.050, 0.550, 0.950);*/
-  /*animation: enter 600ms cubic-bezier(0.445, 0.050, 0.550, 0.950);*/
-  /*display: block;*/
-  /*position: relative;*/
-/*}*/
-/*@-webkit-keyframes enter {*/
-  /*from {*/
-    /*opacity: 0;*/
-    /*height: 0px;*/
-    /*left: -70px;*/
-  /*}*/
-  /*75% {*/
-    /*left: 15px;*/
-  /*}*/
-  /*to {*/
+/*@keyframes lightSpeedOut {*/
+  /*0% {*/
     /*opacity: 1;*/
-    /*height: 30px;*/
-    /*left: 0px;*/
   /*}*/
-/*}*/
-/*@keyframes enter {*/
-  /*from {*/
+
+  /*100% {*/
+    /*transform: translate3d(100%, 100, 0) skewX(30deg);*/
+    /*transform: translate3d(100%, 100, 0) skewX(30deg);*/
+    /*transform: translate3d(100%, 100, 0) skewX(30deg);*/
     /*opacity: 0;*/
-    /*height: 0px;*/
-    /*left: -70px;*/
-  /*}*/
-  /*75% {*/
-    /*left: 15px;*/
-  /*}*/
-  /*to {*/
-    /*opacity: 1;*/
-    /*height: 30px;*/
-    /*left: 0px;*/
   /*}*/
 /*}*/
+
 
 
 /*.animate-repeat.ng-move,*/
 
-.animate-repeat.ng-enter-stagger,
-.animate-repeat.ng-leave-stagger,
-.animate-repeat.ng-move-stagger {
-  /* 200ms will be applied between each sucessive enter operation */
-  -webkit-transition-delay:0.2s;
-  transition-delay:0.2s;
-}
+/*.animate-repeat.ng-enter-stagger,*/
+/*.animate-repeat.ng-leave-stagger{*/
+  /*!* 200ms will be applied between each sucessive enter operation *!*/
+  /*-webkit-transition-delay:0.2s;*/
+  /*transition-delay:0.2s;*/
+/*}*/
 
 .animate-repeat.ng-enter,
-.animate-repeat.ng-leave,
-.animate-repeat.ng-move {
+.animate-repeat.ng-leave{
   -webkit-transition:0.2s linear all;
   transition:0.2s linear all;
 }
 
-.animate-repeat.ng-leave.ng-leave-active,
-.animate-repeat.ng-enter,
-.animate-repeat.ng-move {
-  -webkit-transition:0.5s linear all;
-  transition:0.5s linear all;
+.animate-repeat.ng-leave.ng-leave-active{
+  -webkit-transition:0.2s linear all;
+  transition:0.2s linear all;
+
+  opacity:0;
+  /*line-height:0;*/
+}
+.animate-repeat.ng-enter{
+  -webkit-transition:0.4s linear all;
+  transition:0.4s linear all;
 
   opacity:0;
   line-height:0;
   /*height:0;*/
 }
 
-.animate-repeat.ng-leave,
-.animate-repeat.ng-move.ng-move-active,
+.animate-repeat.ng-leave{
+  opacity:1;
+}
+
 .animate-repeat.ng-enter.ng-enter-active {
   opacity:1;
-  /*line-height:100px;*/
-  /*height:50%;*/
+  line-height:100%;
+  /*height:100%;*/
 }

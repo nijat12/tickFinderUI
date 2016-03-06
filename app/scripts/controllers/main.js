@@ -17,6 +17,10 @@ tick.controller('MainCtrl', ['$scope', 'loadIcon', '$q', 'postServices', 'contac
     $scope.emailTo = null;
     $scope.levelFilter= null;
 
+    $scope.rcount = 0;
+    $scope.ycount = 0;
+    $scope.gcount = 0;
+
     var emailContent = '';
     var modalInstance = null, modalInstance2 = null;
 
@@ -78,6 +82,7 @@ tick.controller('MainCtrl', ['$scope', 'loadIcon', '$q', 'postServices', 'contac
         //d.resolve(data);
         $scope.posts = data;
         $scope.postsOnView=angular.copy(data);
+        colorcount();
       }, function (err) {
         loadIcon.hide();
         //d.reject(err);
@@ -88,16 +93,17 @@ tick.controller('MainCtrl', ['$scope', 'loadIcon', '$q', 'postServices', 'contac
 
     $scope.DeletePosts = function (obj, index) {
 
-      $scope.postsOnView.splice(index,1);
+      $scope.postsOnView.splice(index, 1);
+      $scope.posts.splice(index, 1);
 
       //loadIcon.show();
-      //for(var i = 50; i < 494; i++){
-      //postServices.delete(obj.id).then(function () {
-      //  //$scope.getPosts();
-      //  loadIcon.hide();
-      //}, function (err) {
-      //  loadIcon.hide();
-      //});
+        postServices.delete(obj.id).then(function () {
+          colorcount();
+          //$scope.getPosts();
+          //  loadIcon.hide();
+        }, function (err) {
+          //  loadIcon.hide();
+        });
     };
 
 
@@ -256,29 +262,51 @@ tick.controller('MainCtrl', ['$scope', 'loadIcon', '$q', 'postServices', 'contac
     };
 
 
-    $scope.redCount = function (){
-      var c = 0;
-      for (var i = 0; i<$scope.posts.length; i++){
-        if($scope.posts[i].polarity === -1)c++;
-      }
-      return c;
-    };
+    var colorcount = function (){
+      var len = $scope.posts.length;
+      var r = 0;
+      var y = 0;
+      var g = 0;
 
-    $scope.yellowCount = function (){
-      var c = 0;
-      for (var i = 0; i<$scope.posts.length; i++){
-        if($scope.posts[i].polarity === 0)c++;
+      for (var i = 0; i<len; i++){
+        if($scope.posts[i].polarity === -1)r++;
+        else if ($scope.posts[i].polarity === 0)y++;
+        else if ($scope.posts[i].polarity === 1)g++;
       }
-      return c;
-    };
 
-    $scope.greenCount = function (){
-      var c = 0;
-      for (var i = 0; i<$scope.posts.length; i++){
-        if($scope.posts[i].polarity === 1)c++;
-      }
-      return c;
+      $scope.rcount = r;
+      $scope.ycount = y;
+      $scope.gcount = g;
+
     };
+    //$scope.redCount = function (){
+    //  var c = 0;
+    //  for (var i = 0; i<$scope.posts.length; i++){
+    //    if($scope.posts[i].polarity === -1)c++;
+    //  }
+    //
+    //
+    //  var c = 0;
+    //  for (var i = 0; i<$scope.posts.length; i++){
+    //    if($scope.posts[i].polarity === 0)c++;
+    //  }
+    //};
+    //
+    //$scope.yellowCount = function (){
+    //  var c = 0;
+    //  for (var i = 0; i<$scope.posts.length; i++){
+    //    if($scope.posts[i].polarity === 0)c++;
+    //  }
+    //  return c;
+    //};
+    //
+    //$scope.greenCount = function (){
+    //  var c = 0;
+    //  for (var i = 0; i<$scope.posts.length; i++){
+    //    if($scope.posts[i].polarity === 1)c++;
+    //  }
+    //  return c;
+    //};
 
     $scope.count = function(){
       return $scope.postsOnView.length;
@@ -300,7 +328,9 @@ tick.controller('MainCtrl', ['$scope', 'loadIcon', '$q', 'postServices', 'contac
 
 
     $scope.filter = function(){
+      $scope.postsOnView = [];
       $scope.postsOnView = $scope.posts.filter(checker);
+      //colorcount();
     };
 
     var checker = function (obj) {
