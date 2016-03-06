@@ -1,5 +1,5 @@
 <div class="background">
-  <div class="row">
+  <div class="row first">
     <div class="custom-header">
       <!--<div id="wrap">-->
       <!--<form action="" autocomplete="on">-->
@@ -7,7 +7,9 @@
       <!--</form>-->
       <!--</div>-->
       <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-        <i class="fa fa-search fa-2x"></i>
+        <i class="fa fa-search fa-2x" style="float: left;" ng-click="search=!search"></i>
+        <input type="text" class="form-control search-form" placeholder="Search" ng-show="search"
+               ng-model="searchVal">
       </div>
     </div>
     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-1">
@@ -15,15 +17,15 @@
     </div>
   </div>
 
-  <div class="row">
-    <div ng-repeat="post in posts">
+  <div class="row second">
+    <div ng-repeat="post in posts | filter:searchVal:post.id">
     <span ng-include="'views/panels.html'">
-
     </span>
     </div>
   </div>
 
-  <div class="row" style="position: fixed; width: 100%;bottom: 5px; right: 5px;">
+
+  <div class="row bottom">
     <div class="tickCountBtns">
       <button class="tickBadBtn">
         <span class="tickBtnName">Bad</span>
