@@ -126,7 +126,6 @@ tick.controller('MainCtrl', ['$scope', 'loadIcon', '$q', 'postServices', 'contac
 
 
     $scope.UpdateContacts1 = function (index) {
-      console.log($scope.contacts[index]);
       //loadIcon.show();
       contactServices.updateU($scope.contacts[index]).then(function () {
         //loadIcon.hide();
@@ -149,7 +148,6 @@ tick.controller('MainCtrl', ['$scope', 'loadIcon', '$q', 'postServices', 'contac
       contactServices.getTags().then(function (data) {
         loadIcon.hide();
         $scope.tags=data;
-        console.log(data);
         //d.resolve(data);
       }, function (err) {
         loadIcon.hide();
@@ -201,6 +199,15 @@ tick.controller('MainCtrl', ['$scope', 'loadIcon', '$q', 'postServices', 'contac
       if($scope.searchVal==='')$scope.search=false;
     };
 
+    $scope.openSearch = function(){
+      if($scope.searchVal===''){
+        focus('search');
+        if($scope.search)$scope.search=false;
+        else $scope.search=true;
+      }
+    };
+
+
     $scope.CreateContacts = function () {
       loadIcon.show();
       contactServices.createC().then(function (data) {
@@ -244,6 +251,7 @@ tick.controller('MainCtrl', ['$scope', 'loadIcon', '$q', 'postServices', 'contac
         $scope.filter();
       }
     };
+
 
     $scope.redCount = function (){
       var c = 0;
@@ -291,13 +299,6 @@ tick.controller('MainCtrl', ['$scope', 'loadIcon', '$q', 'postServices', 'contac
       } else {
         return obj.id.toString()==$scope.searchVal || obj.user.indexOf($scope.searchVal)>-1 || obj.content.indexOf($scope.searchVal)>-1
       }
-    };
-
-
-
-    $scope.openSearch = function(){
-      focus('search');
-      $scope.search=!$scope.search
     };
 
 

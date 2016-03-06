@@ -10,8 +10,11 @@
         <button class="btn btn-c" style="float: left;">
           <i class="fa fa-search fa-2x" ng-click="openSearch()"></i>
         </button>
-        <input focus-on="search" type="text" class="form-control search-form" placeholder="Search" ng-show="search"
+        <input focus-on="search" type="search" class="form-control search-form" placeholder="Search" ng-show="search"
                ng-model="searchVal" ng-change="filter()" ng-blur="searchFunc()">
+        <button class="btn btn-c" style="margin-left: -15px;" ng-if="search" ng-click="searchVal=''">
+          <i class="fa fa-1x fa-times"></i>
+        </button>
       </div>
     </div>
     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-1">
@@ -33,15 +36,15 @@
   <div class="row bottom">
     <div class="tickCountBtns">
       <button class="tickUrgentBtn" ng-click="red()">
-        <span class="tickBtnName">Urgent</span>
+        <span class="tickBtnName redlabel">Negative</span>
         <span class="tickBtnNum">{{redCount()}}</span>
       </button>
       <button class="tickBadBtn" ng-click="yellow()">
-        <span class="tickBtnName">Bad</span>
+        <span class="tickBtnName yellowlabel">Neutral</span>
         <span class="tickBtnNum">{{yellowCount()}}</span>
       </button>
       <button class="tickArchivedBtn" ng-click="green()">
-        <span class="tickBtnName">Good</span>
+        <span class="tickBtnName greenlabel">Positive</span>
         <span class="tickBtnNum">{{greenCount()}}</span>
       </button>
     </div>
