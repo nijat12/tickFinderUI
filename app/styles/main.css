@@ -35,7 +35,7 @@ body {
 
 .background .row.first {
   background: #eee;
-  /*border-bottom: 20px solid #eee;*/
+  /* border-bottom: 20px solid #eee; */
   box-shadow: 0 13px 12px -11px #777;
   position: fixed;
   width: 100%;
@@ -424,6 +424,15 @@ tags-input .tags .tag-item{
   /*border-radius: 0 6px 6px 0;*/
   color: white;
 }
+
+.count {
+  font-size: 1.5em;
+  font-family: monospace;
+  /*font-weight: bold;*/
+  margin-top: 9px;
+  text-align: center;
+}
+
 
 .redlabel {
   color: #ED1C24!important;

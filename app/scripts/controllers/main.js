@@ -243,8 +243,8 @@ tick.controller('MainCtrl', ['$scope', 'loadIcon', '$q', 'postServices', 'contac
     };
     $scope.green = function(){
       if ($scope.levelFilter=== 1){
-        $scope.filter();
         $scope.levelFilter= null;
+        $scope.filter();
       }
       else {
         $scope.levelFilter= 1;
@@ -276,6 +276,13 @@ tick.controller('MainCtrl', ['$scope', 'loadIcon', '$q', 'postServices', 'contac
       }
       return c;
     };
+
+    $scope.count = function(){
+      return $scope.postsOnView.length;
+    };
+
+
+
 
     $scope.filterComparator = function (post){
       if($scope.levelFilter !== null) return post;
