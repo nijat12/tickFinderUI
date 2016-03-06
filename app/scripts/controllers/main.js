@@ -7,8 +7,8 @@
  * # MainCtrl
  * Controller of the tickFinderUiApp
  */
-tick.controller('MainCtrl', ['$scope', 'loadIcon', '$q', 'postServices', 'contactServices', '$uibModal',
-  function ($scope, loadIcon, $q, postServices, contactServices, $uibModal) {
+tick.controller('MainCtrl', ['$scope', 'loadIcon', '$q', 'postServices', 'contactServices', '$uibModal', 'toastr',
+  function ($scope, loadIcon, $q, postServices, contactServices, $uibModal, toastr) {
     $scope.posts = [];
     $scope.contacts = [];
     $scope.searchVal = '';
@@ -65,10 +65,10 @@ tick.controller('MainCtrl', ['$scope', 'loadIcon', '$q', 'postServices', 'contac
       //return d.promise;
     };
 
-    $scope.DeletePosts = function (index) {
+    $scope.DeletePosts = function (obj) {
       loadIcon.show();
       //for(var i = 50; i < 494; i++){
-      postServices.delete($scope.posts[index].id).then(function () {
+      postServices.delete(obj.id).then(function () {
         $scope.getPosts();
         loadIcon.hide();
       }, function (err) {
@@ -109,6 +109,9 @@ tick.controller('MainCtrl', ['$scope', 'loadIcon', '$q', 'postServices', 'contac
       //loadIcon.show();
       contactServices.updateU($scope.contacts[index]).then(function () {
         //loadIcon.hide();
+        toastr.success('Saved', {
+          closeButton: true
+        });
       }, function (err) {
         console.log(err);
         //loadIcon.hide();
@@ -116,6 +119,29 @@ tick.controller('MainCtrl', ['$scope', 'loadIcon', '$q', 'postServices', 'contac
 
     };
 
+    var monthNames = ["January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+
+    $scope.timeParser = function (time){
+      if(time && time !=='') {
+        var d = new Date(time);
+        var str = monthNames[d.getMonth()] + '/' + d.getDate() + '/' + d.getFullYear();
+        return str;
+      } else return 'time not available';
+    };
+
+    $scope.image = function (link){
+      if(link === ""){
+        return '../images/facebook_stdby.png'
+      } else {
+        return link;
+      }
+    };
+
+    $scope.searchFunc = function(){
+      if($scope.searchVal==='')$scope.search=false;
+    };
 
     $scope.CreateContacts = function () {
       loadIcon.show();

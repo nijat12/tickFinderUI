@@ -19,9 +19,25 @@ var tick = angular
     'ui.router',
     'ui.bootstrap',
     'ui.bootstrap.fontawesome',
-    'angularSpinner'
+    'angularSpinner',
+    'toastr',
+    'ngTagsInput'
   ])
-  .config(function ($urlRouterProvider, $stateProvider) {
+  .config(function ($urlRouterProvider, $stateProvider, toastrConfig) {
+
+    angular.extend(toastrConfig, {
+      autoDismiss: true,
+      containerId: 'toast-container',
+      maxOpened: 0,
+      newestOnTop: true,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+      preventOpenDuplicates: true,
+      extendedTimeOut: 500,
+      tapToDismiss: true,
+      target: 'body'
+    });
+
     // For any unmatched url, redirect to /state1
     $urlRouterProvider.otherwise('/login');
 

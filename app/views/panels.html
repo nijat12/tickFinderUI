@@ -1,24 +1,24 @@
 <div class="tickPane" ng-class="post.polarity===-1 ? 'red' : (post.polarity===0? 'yellow': 'green')">
   <div class="pane-container">
     <div class="tickPaneStart col-lg-2">
-      <img src="https://scontent-lga3-1.cdninstagram.com/t51.2885-19/11272096_360080904201743_96395588_a.jpg">
+      <img src="{{image(post.picture)}}">
       <!--<link rel="image_src" href="{{post.source}}" />-->
       <!--<div class="fb-post" class="flex" data-href="{post.source}"></div>-->
     </div>
     <div class="tickPaneMid col-lg-9">
       <span class="tickId"># {{post.id}}</span>
-      <span class="tickContent">{{post.content}}</span>
+      <span class="tickContent row">{{post.content}}</span>
       <div class="flex">
         <!-- <i class="tickSocial fa fa-facebook"></i> -->
         <i class="tickSocial fa fa-facebook-official"></i>
         <span class="tickUser">@{{post.user}}</span>
       </div>
-      <a class="flex" href="{{post.source}}" target="_blank">{{post.source}}</a>
-      <!--<span class="tickDate flex">04/15/2016 12:00PM</span>-->
+      <a href="{{post.source}}" target="_blank">{{post.source}}</a>
+      <span class="row tickDate">{{timeParser(post.createdTime)}}</span>
     </div>
     <div class="tickPaneEnd col-lg-1">
       <div class="row">
-      <i class="tickArchiveBtn fa fa-times fa-3x" ng-click="DeletePosts($index)"></i>
+      <i class="tickArchiveBtn fa fa-times fa-3x" ng-click="DeletePosts(post)"></i>
       </div>
       <div class="row sec">
         <span><i class="tickMailBtn fa fa-envelope fa-3x"></i></span>

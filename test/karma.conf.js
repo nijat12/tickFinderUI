@@ -36,6 +36,8 @@ module.exports = function(config) {
       'bower_components/bootstrap/dist/js/bootstrap.js',
       'bower_components/spin.js/spin.js',
       'bower_components/angular-spinner/angular-spinner.js',
+      'bower_components/angular-toastr/dist/angular-toastr.tpls.js',
+      'bower_components/ng-tags-input/ng-tags-input.min.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",
